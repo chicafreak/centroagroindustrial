@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>CENTRO AGROINDUSTRIAL - CAISA MEXICO</title>
+<link rel="shortcut icon" href="images/caisa.ico" type="image/x-icon" />
+<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE" />
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="responsive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.slidertron-1.0.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="page-content">
+					<div id="header-wrapper">
+						<div id="header">
+							<div id="logo">
+								<h1><a href="http://www.centroagroindustrial.com"><img src="images/logo_caisa.jpg" width="300" height="136"></a></h1>
+								<h2><br>
+								  
+							  </h2>
+							  <p></p>
+							</div>
+						</div>
+					</div>
+                    <br>
+					<!-- end #header -->
+	<style media="all" type="text/css">@import "menu/menu_style.css";</style>
+<div class="menu">
+<ul>
+<li><a href="nosotros.html" target="_self" >Nosotros</a>
+</li>
+<li><a>Fertilizantes</a>
+<ul>
+
+<li><a href="fertilizantes/solfer.html" target="_self">Solubles</a></li>
+<li><a href="fertilizantes/npk.html" target="_self">NPK; Nitrógeno, Fósforo y Potasio</a></li>
+<li><a href="fertilizantes/beneficios.html" target="_self">Beneficios</a></li>
+</ul>
+</li>
+<li><a href="fumigantes.html" target="_self" >Fumigantes</a>
+
+</li>
+<li><a href="proximamente.html" target="_self" >Productos Qu&iacute;micos</a>
+<!--<ul>
+<li><a href="quimicos/bromados.html" target="_self">Bromados</a></li>
+<li><a href="quimicos/fosfato.html" target="_self">Fosfatados</a></li>
+<li><a href="quimicos/acidos.html" target="_self">&Aacute;cido Fósforico y Nítrico</a></li>
+<li><a href="quimicos/basefuran.html" target="_self">A base de Furanos</a></li>
+</ul>-->
+</li>
+<li><a href="sistemas.html">Sistemas contra Incendios</a></li>
+<li><a href="proximamente.html">DEF</a></li>
+<li><a href="ubicacion.html" target="_self" >Ubicaci&oacute;n</a>
+</li>
+<li><a href="contacto.html" target="_self" >Contacto</a>
+</li>
+</ul>
+</div>
+
+				  <!-- end #menu -->
+				
+					<div id="content">
+						<div class="post">
+							<h2 class="title">CONTACTO</h2>
+						
+							<div class="entry"> 
+							
+
+ <?php
+		if(isset($_POST['boton'])){
+			if($_POST['nombre'] == ''){
+				$error1 = '<span class="error">Ingrese su nombre</span>';
+			}else if($_POST['email'] == '' or !preg_match("/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/",$_POST['email'])){
+				$error2 = '<span class="error">Ingrese un email correcto</span>';
+			}else if($_POST['mensaje'] == ''){
+				$error4 = '<span class="error">Ingrese un mensaje</span>';
+			}else{			
+				$dest = "info@centroagroindustrial.com";//Email de destino
+				$nombre = $_POST['nombre'];
+				$email = $_POST['email'];
+				$producto = $_POST['producto'];//producto
+				$cuerpo = $_POST['mensaje']; //Mensaje
+				$body = "<b>Nombre:</b> ".$nombre."\n";
+				$body .= "<br><b>Email:</b> ".$email."\n";
+				$body .= "<br><b>Producto:</b> ".$producto."\n";
+				$body .= "<br><b>Mensaje:</b> ".$cuerpo."\n";
+				//$body =$cuerpo.". Producto:".$producto.". Nombre:".$nombre.".Email:".$nombre;//Cuerpo del mensaje
+				$headers = "From: centroagroindustrial.com\r\n"; //Quien envia?
+				$headers .= "X-Mailer: PHP5\n";
+				$headers .= 'MIME-Version: 1.0' . "\n";
+				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; //
+				
+				//if(mail($dest,$asunto,$cuerpo+$producto+$estado,$headers)){
+				//if(mail($dest,$cuerpo,$producto,$body,$headers)){
+				if(mail($dest,"Informacion",$body,$headers)){
+					$result = '<div class="result_ok">Email enviado correctamente :)</a>';	
+					// si el envio fue exitoso reseteamos lo que el usuario escribio:
+					$_POST['nombre'] = '';
+					$_POST['email'] = '';
+					$_POST['producto'] = '';
+					$_POST['mensaje'] = '';
+				}else{
+					$result = '<div class="result_fail">Hubo un error al enviar el mensaje :(</a>';
+				}
+			}
+		}
+	?>
+<form class='contacto' method='POST' action=''>
+  <div>
+			  <label class="paz"><strong>Nombre</strong>:</label>
+			  <input name='nombre' type='text' class='nombre' value='<?php echo $_POST['nombre']; ?>' size="40"><?php echo $error1 ?><br />
+			  <br />
+			</div>
+			<div>
+			  <label><span class="paz"><strong>Email</strong></span>:</label>
+			  <input name='email' type='text' class='email' value='<?php echo $_POST['email']; ?>' size="40"><?php echo $error2 ?><br />
+			  <br />
+			</div>
+  <div><strong>
+    <label><span class="paz">Producto que le interesa</span>:</label>
+    <select name="producto" id="producto" onchange="cambio">
+      <option value="Fertilizantes">Fertilizantes</option>
+      <option value="Fumigantes">Fumigantes</option>
+      <option value="Productos Químicos">Productos Químicos</option>
+      <option value="Sistemas contra Incendio">Sistemas contra Incendios</option>
+      <option value="DEF">DEF</option>
+   
+    </select>
+    <?php echo $error3 ?></strong></div>
+  <div>
+    <label></label>
+  </div>
+			<div>
+			  <p>
+			    <label><span class="paz"><strong>Mensaje</strong></span>:</label>
+		      </p>
+			  <p>
+			    <textarea name='mensaje' cols="50" rows='6' class='mensaje'><?php echo $_POST['mensaje']; ?></textarea>
+		      </p>
+		    <?php echo $error4 ?></div>
+			<div><input type='submit' value='Envia Mensaje' class='boton' name='boton'></div>
+			<?php echo $result; ?>
+</form>
+</form>
+
+
+</div>
+</div>
+
+	
+							 
+						
+						<div class="post">
+							<h2 class="title">&nbsp;</h2>
+</div>
+						<div style="clear: both;">&nbsp;</div>
+					</div>
+					<!-- end #content -->
+					<div id="sidebar">
+						
+					<!--<p class="naranja">Los logros alcanzados por CAISA® han sido producto de nuestra interacción con empresas extranjeras de relevancia localizadas en Chile, USA, Europa, China, Canadá y Rusia, quienes nos han respaldado en nuestro desarrollo dentro del país. </p>-->
+
+
+					</div>
+					<!-- end #sidebar -->
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Mapa del sitio | <a href="avisodeprivacidad.html" target="blank">Aviso de Privacidad</a> | CAISA ®
+    </p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

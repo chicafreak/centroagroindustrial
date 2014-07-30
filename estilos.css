@@ -1,0 +1,164 @@
+body, article, footer, header, section
+{
+	display: block;
+	
+}
+
+a
+{
+	color: #686b6b;
+}
+body
+{
+	background: #FFF;
+	border-radius: 0.1em;
+	color: #4C4C4C;
+	font-family: "PT Sans", Arial;
+	font-size: 16px;
+	background: transparent;
+	border-radius: 0.2em;
+	/*-webkit-border-radius: 0.5em;
+	-o-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	-ms-border-radius: 0.5em;*/
+	box-shadow: rgba(0,0,0,0.5) 0px 5px 10px;
+	margin: 1em auto;
+	padding: 1em;
+	width: 800px;
+	
+	
+	
+}
+header
+{
+	background: #FFF;
+	color: white;
+	padding: 0.5em;
+	text-align: justify;
+}
+header figure, header h1
+{
+	display: inline-block;
+	vertical-align: top;
+}
+header h1
+{
+	font-size: 18px;
+	font-weight: normal;
+	margin: 1em 0 0 1em;
+	width: 100%;
+	
+}
+
+header #logo img
+{
+	width:80%;
+	
+
+}
+	
+	header #logo2 img
+{
+	width: 75%;
+	float: right;
+	
+	
+}
+
+header h1{
+	font-size: 25px;
+}
+h2{
+	color: #000048;
+	font-size: 18px;
+	text-align: center;
+
+}
+
+label{
+	margin: 1em;
+	t
+}
+
+input{
+	display: block;
+	
+
+}
+
+#contenido
+{
+	margin: 2em;
+	font-family: "PT Sans", Arial;
+	display:block;
+	aling: center;
+	width: 45em;
+	
+}
+#contenido .datos_item .tag_item
+{
+	background: #22BCE0;
+	border-radius: 0.5em;
+	color: #000;
+	padding: 0.2em 0.5em;
+	text-decoration: none;
+}
+#contenido .item
+{
+	border-bottom: 3px #22BCE0 solid;
+	background: white;
+}
+#contenido .item p
+{
+	color: #000000;
+	font-size: 0.9em;
+}
+#contenido .item .imagen_item
+{
+	float: left;
+	margin: 0 0.5em 0 0;
+}
+#contenido .item .imagen_item img 
+{
+	width: 96px;
+}
+#contenido .item .titulo_item
+{
+	font-size: 1rem;
+	padding: 0.5em 0.5em 0;
+}
+#contenido .item .titulo_item a
+{
+	color: #444;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+#contenido p {
+	color: #000;
+	font-family: "PT Sans", Arial;
+}
+
+#footer {
+	background:#133b6c;
+	color: #FFF;
+	margin: 2em;
+	padding: 1em;
+	height: 3em;
+	font-size: 0.9em;
+	font-color: white;
+	text-align:center;
+	display:block;
+	width:52em;
+}
+#titulo_header {
+	color: #333333;
+	font-family: "PT Sans", Arial;
+	text-align: center;
+	
+}
